@@ -1,0 +1,8 @@
+build apk:
+	First time only:
+		ionic build
+		ionic cap add android
+		ionic capacitor build android --prod --release
+	Subsequent builds:
+		ionic build
+		ionic cap copy

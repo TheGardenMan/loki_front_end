@@ -1,0 +1,5 @@
+1.
+	react-hook requires capcpre-1.3
+	others require capcore-2.4
+	aliases change names thus react-hook not detecting it
+2.Change signup to json from formData.back n front.

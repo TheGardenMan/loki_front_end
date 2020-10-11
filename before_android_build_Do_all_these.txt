@@ -1,0 +1,2 @@
+Do the MainActivity thing
+	https://www.npmjs.com/package/capacitor-secure-storage-plugin
