@@ -1,0 +1,511 @@
+
+{
+  "header": {
+    "reportVersion": 2,
+    "event": "Allocation failed - JavaScript heap out of memory",
+    "trigger": "FatalError",
+    "filename": "report.20201021.194846.3624.0.001.json",
+    "dumpEventTime": "2020-10-21T19:48:47Z",
+    "dumpEventTimeStamp": "1603289927714",
+    "processId": 3624,
+    "threadId": null,
+    "cwd": "E:\\Jack\\FaceLoci",
+    "commandLine": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "--max-old-space-size=2048",
+      "E:\\Jack\\FaceLoci\\node_modules\\fork-ts-checker-webpack-plugin\\lib\\service.js"
+    ],
+    "nodejsVersion": "v12.16.2",
+    "wordSize": 64,
+    "arch": "x64",
+    "platform": "win32",
+    "componentVersions": {
+      "node": "12.16.2",
+      "v8": "7.8.279.23-node.34",
+      "uv": "1.34.2",
+      "zlib": "1.2.11",
+      "brotli": "1.0.7",
+      "ares": "1.15.0",
+      "modules": "72",
+      "nghttp2": "1.40.0",
+      "napi": "5",
+      "llhttp": "2.0.4",
+      "http_parser": "2.9.3",
+      "openssl": "1.1.1e",
+      "cldr": "36.0",
+      "icu": "65.1",
+      "tz": "2019c",
+      "unicode": "12.1"
+    },
+    "release": {
+      "name": "node",
+      "lts": "Erbium",
+      "headersUrl": "https://nodejs.org/download/release/v12.16.2/node-v12.16.2-headers.tar.gz",
+      "sourceUrl": "https://nodejs.org/download/release/v12.16.2/node-v12.16.2.tar.gz",
+      "libUrl": "https://nodejs.org/download/release/v12.16.2/win-x64/node.lib"
+    },
+    "osName": "Windows_NT",
+    "osRelease": "10.0.16299",
+    "osVersion": "Windows 10 Pro",
+    "osMachine": "x86_64",
+    "cpus": [
+      {
+        "model": "AMD PRO A4-3350B APU with Radeon R4 Graphics   ",
+        "speed": 1996,
+        "user": 1407828,
+        "nice": 0,
+        "sys": 3237421,
+        "idle": 9857953,
+        "irq": 89156
+      },
+      {
+        "model": "AMD PRO A4-3350B APU with Radeon R4 Graphics   ",
+        "speed": 1996,
+        "user": 1353093,
+        "nice": 0,
+        "sys": 2902484,
+        "idle": 10247312,
+        "irq": 21078
+      },
+      {
+        "model": "AMD PRO A4-3350B APU with Radeon R4 Graphics   ",
+        "speed": 1996,
+        "user": 1269625,
+        "nice": 0,
+        "sys": 2337812,
+        "idle": 10895437,
+        "irq": 14640
+      },
+      {
+        "model": "AMD PRO A4-3350B APU with Radeon R4 Graphics   ",
+        "speed": 1996,
+        "user": 1016687,
+        "nice": 0,
+        "sys": 1519062,
+        "idle": 11967125,
+        "irq": 27562
+      }
+    ],
+    "networkInterfaces": [
+      {
+        "name": "Ethernet 2",
+        "internal": false,
+        "mac": "00:50:56:c0:00:01",
+        "address": "fe80::546b:c978:6c6f:5a30",
+        "netmask": "ffff:ffff:ffff:ffff::",
+        "family": "IPv6",
+        "scopeid": 18
+      },
+      {
+        "name": "Ethernet 2",
+        "internal": false,
+        "mac": "00:50:56:c0:00:01",
+        "address": "192.168.117.1",
+        "netmask": "255.255.255.0",
+        "family": "IPv4"
+      },
+      {
+        "name": "Ethernet 3",
+        "internal": false,
+        "mac": "00:50:56:c0:00:08",
+        "address": "fe80::31e7:9ca:6c49:17a",
+        "netmask": "ffff:ffff:ffff:ffff::",
+        "family": "IPv6",
+        "scopeid": 7
+      },
+      {
+        "name": "Ethernet 3",
+        "internal": false,
+        "mac": "00:50:56:c0:00:08",
+        "address": "192.168.146.1",
+        "netmask": "255.255.255.0",
+        "family": "IPv4"
+      },
+      {
+        "name": "WiFi",
+        "internal": false,
+        "mac": "f0:03:8c:a5:b8:00",
+        "address": "fe80::8120:56fd:5dd7:f622",
+        "netmask": "ffff:ffff:ffff:ffff::",
+        "family": "IPv6",
+        "scopeid": 2
+      },
+      {
+        "name": "WiFi",
+        "internal": false,
+        "mac": "f0:03:8c:a5:b8:00",
+        "address": "192.168.225.24",
+        "netmask": "255.255.255.0",
+        "family": "IPv4"
+      },
+      {
+        "name": "Loopback Pseudo-Interface 1",
+        "internal": true,
+        "mac": "00:00:00:00:00:00",
+        "address": "::1",
+        "netmask": "ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff",
+        "family": "IPv6",
+        "scopeid": 0
+      },
+      {
+        "name": "Loopback Pseudo-Interface 1",
+        "internal": true,
+        "mac": "00:00:00:00:00:00",
+        "address": "127.0.0.1",
+        "netmask": "255.0.0.0",
+        "family": "IPv4"
+      }
+    ],
+    "host": "DESKTOP-2PIITH5"
+  },
+  "javascriptStack": {
+    "message": "No stack.",
+    "stack": [
+      "Unavailable."
+    ]
+  },
+  "nativeStack": [
+    {
+      "pc": "0x00007ff6ea5f2309",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff6ea5f6869",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff6ea5f56e8",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff6ea71dd82",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff6eaf3a27e",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff6eaf22351",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff6eadee8ac",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff6eadf6831",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff6eadebe03",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff6eadea474",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff6eae0b67d",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff6eab713d1",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff6eb38730d",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff6eb33de56",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff6eb3e333e",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff6eb30c2bc",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff6eb30c2bc",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff6eb3097f1",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff6eb3093dc",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff6eae47f63",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff6eae478e6",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff6eaf1895d",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff6ea79d188",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff6ea796e73",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff6ea6b0a4e",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff6ea7cea7c",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff6ea7cd417",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff6ea7c9ecb",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff6ea7c966c",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff6ea7c9834",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff6ea6d9681",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff6ea746223",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff6ea5c6a9c",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff6eb43f3f8",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ffb80aa1fe4",
+      "symbol": "BaseThreadInitThunk+20"
+    },
+    {
+      "pc": "0x00007ffb835cefc1",
+      "symbol": ""
+    }
+  ],
+  "javascriptHeap": {
+    "totalMemory": 150499328,
+    "totalCommittedMemory": 150499328,
+    "usedMemory": 136500456,
+    "availableMemory": 2062475384,
+    "memoryLimit": 2197815296,
+    "heapSpaces": {
+      "read_only_space": {
+        "memorySize": 262144,
+        "committedMemory": 262144,
+        "capacity": 32808,
+        "used": 32808,
+        "available": 0
+      },
+      "new_space": {
+        "memorySize": 1835008,
+        "committedMemory": 1835008,
+        "capacity": 1833048,
+        "used": 1833048,
+        "available": 0
+      },
+      "old_space": {
+        "memorySize": 121511936,
+        "committedMemory": 121511936,
+        "capacity": 121328248,
+        "used": 108973088,
+        "available": 12355160
+      },
+      "code_space": {
+        "memorySize": 3051520,
+        "committedMemory": 3051520,
+        "capacity": 2896096,
+        "used": 2350112,
+        "available": 545984
+      },
+      "map_space": {
+        "memorySize": 1052672,
+        "committedMemory": 1052672,
+        "capacity": 1051224,
+        "used": 626000,
+        "available": 425224
+      },
+      "large_object_space": {
+        "memorySize": 22405120,
+        "committedMemory": 22405120,
+        "capacity": 22364344,
+        "used": 22364344,
+        "available": 0
+      },
+      "code_large_object_space": {
+        "memorySize": 380928,
+        "committedMemory": 380928,
+        "capacity": 321056,
+        "used": 321056,
+        "available": 0
+      },
+      "new_large_object_space": {
+        "memorySize": 0,
+        "committedMemory": 0,
+        "capacity": 1833048,
+        "used": 0,
+        "available": 1833048
+      }
+    }
+  },
+  "resourceUsage": {
+    "userCpuSeconds": 971.046,
+    "kernelCpuSeconds": 6677.75,
+    "cpuConsumptionPercent": 54.3161,
+    "maxRss": 431878144,
+    "pageFaults": {
+      "IORequired": 1020940,
+      "IONotRequired": 0
+    },
+    "fsActivity": {
+      "reads": 3065,
+      "writes": 127
+    }
+  },
+  "libuv": [
+  ],
+  "workers": [
+  ],
+  "environmentVariables": {
+    "allusersprofile": "C:\\ProgramData",
+    "appdata": "C:\\Users\\SURESH\\AppData\\Roaming",
+    "BABEL_ENV": "development",
+    "browser": "none",
+    "CHECK_SYNTACTIC_ERRORS": "true",
+    "commonprogramfiles": "C:\\Program Files\\Common Files",
+    "commonprogramfiles(x86)": "C:\\Program Files (x86)\\Common Files",
+    "commonprogramw6432": "C:\\Program Files\\Common Files",
+    "COMPILER_OPTIONS": "{}",
+    "computername": "DESKTOP-2PIITH5",
+    "comspec": "C:\\Windows\\system32\\cmd.exe",
+    "CONTEXT": "E:\\Jack\\FaceLoci",
+    "corona_path": "C:\\Program Files (x86)\\Corona Labs\\Corona\\",
+    "corona_root": "C:\\Program Files (x86)\\Corona Labs\\Corona\\Native",
+    "corona_sdk_path": "C:\\Program Files (x86)\\Corona Labs\\Corona\\",
+    "dp0": "E:\\Jack\\FaceLoci\\node_modules\\.bin\\",
+    "ESLINT": "false",
+    "ESLINT_OPTIONS": "{}",
+    "force_color": "1",
+    "homedrive": "C:",
+    "homepath": "\\Users\\SURESH",
+    "https": "false",
+    "ionic_cli_bin": "C:\\Users\\SURESH\\AppData\\Roaming\\npm\\node_modules\\@ionic\\cli\\bin\\ionic",
+    "ionic_cli_lib": "C:\\Users\\SURESH\\AppData\\Roaming\\npm\\node_modules\\@ionic\\cli",
+    "ionic_cli_local_error": "LOCAL_CLI_NOT_FOUND",
+    "localappdata": "C:\\Users\\SURESH\\AppData\\Local",
+    "logonserver": "\\\\DESKTOP-2PIITH5",
+    "MEMORY_LIMIT": "2048",
+    "NODE_ENV": "development",
+    "NODE_PATH": "",
+    "number_of_processors": "4",
+    "onedrive": "C:\\Users\\SURESH\\OneDrive",
+    "os": "Windows_NT",
+    "path": "E:\\Jack\\FaceLoci\\node_modules\\.bin;C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\oraclexe\\app\\oracle\\product\\11.2.0\\server\\bin;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;c:\\Program Files (x86)\\Microsoft SQL Server\\100\\Tools\\Binn\\;c:\\Program Files\\Microsoft SQL Server\\100\\Tools\\Binn\\;c:\\Program Files\\Microsoft SQL Server\\100\\DTS\\Binn\\;C:\\Go\\bin;C:\\Program Files\\Git\\cmd;C:\\Program Files\\nodejs\\;E:\\Jack\\;C:\\Program Files\\Java\\jdk-10.0.2;C:\\Users\\SURESH\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Users\\SURESH\\AppData\\Roaming\\npm",
+    "pathext": ".COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JSE;.WSF;.WSH;.MSC",
+    "port": "8100",
+    "processor_architecture": "AMD64",
+    "processor_identifier": "AMD64 Family 22 Model 48 Stepping 1, AuthenticAMD",
+    "processor_level": "22",
+    "processor_revision": "3001",
+    "programdata": "C:\\ProgramData",
+    "programfiles": "C:\\Program Files",
+    "programfiles(x86)": "C:\\Program Files (x86)",
+    "programw6432": "C:\\Program Files",
+    "prompt": "$P$G",
+    "psmodulepath": "C:\\Program Files\\WindowsPowerShell\\Modules;C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules",
+    "public": "C:\\Users\\Public",
+    "sessionname": "Console",
+    "systemdrive": "C:",
+    "systemroot": "C:\\Windows",
+    "temp": "C:\\Users\\SURESH\\AppData\\Local\\Temp",
+    "tmp": "C:\\Users\\SURESH\\AppData\\Local\\Temp",
+    "TSCONFIG": "E:\\Jack\\FaceLoci\\tsconfig.json",
+    "TSLINT": "",
+    "TSLINTAUTOFIX": "false",
+    "TYPESCRIPT_PATH": "E:\\Jack\\FaceLoci\\node_modules\\typescript\\lib\\typescript.js",
+    "userdomain": "DESKTOP-2PIITH5",
+    "userdomain_roamingprofile": "DESKTOP-2PIITH5",
+    "username": "SURESH",
+    "userprofile": "C:\\Users\\SURESH",
+    "USE_INCREMENTAL_API": "true",
+    "vs100comntools": "C:\\Program Files (x86)\\Microsoft Visual Studio 10.0\\Common7\\Tools\\",
+    "VUE": "{\"compiler\":\"vue-template-compiler\",\"enabled\":false}",
+    "WATCH": "",
+    "WEBPACK_DEV_SERVER": "true",
+    "windir": "C:\\Windows",
+    "WORK_DIVISION": "1",
+    "_prog": "node"
+  },
+  "sharedObjects": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "C:\\Windows\\SYSTEM32\\ntdll.dll",
+    "C:\\Windows\\System32\\KERNEL32.DLL",
+    "C:\\Windows\\System32\\KERNELBASE.dll",
+    "C:\\Windows\\SYSTEM32\\apphelp.dll",
+    "C:\\Windows\\System32\\WS2_32.dll",
+    "C:\\Windows\\System32\\RPCRT4.dll",
+    "C:\\Windows\\System32\\PSAPI.DLL",
+    "C:\\Windows\\System32\\ADVAPI32.dll",
+    "C:\\Windows\\System32\\msvcrt.dll",
+    "C:\\Windows\\System32\\sechost.dll",
+    "C:\\Windows\\System32\\USER32.dll",
+    "C:\\Windows\\SYSTEM32\\dbghelp.dll",
+    "C:\\Windows\\System32\\win32u.dll",
+    "C:\\Windows\\System32\\GDI32.dll",
+    "C:\\Windows\\System32\\gdi32full.dll",
+    "C:\\Windows\\System32\\ucrtbase.dll",
+    "C:\\Windows\\System32\\msvcp_win.dll",
+    "C:\\Windows\\System32\\CRYPT32.dll",
+    "C:\\Windows\\System32\\MSASN1.dll",
+    "C:\\Windows\\SYSTEM32\\IPHLPAPI.DLL",
+    "C:\\Windows\\SYSTEM32\\USERENV.dll",
+    "C:\\Windows\\System32\\profapi.dll",
+    "C:\\Windows\\SYSTEM32\\bcrypt.dll",
+    "C:\\Windows\\SYSTEM32\\WINMM.dll",
+    "C:\\Windows\\SYSTEM32\\winmmbase.dll",
+    "C:\\Windows\\System32\\cfgmgr32.dll",
+    "C:\\Windows\\System32\\IMM32.DLL",
+    "C:\\Windows\\System32\\combase.dll",
+    "C:\\Windows\\System32\\bcryptPrimitives.dll",
+    "C:\\Windows\\System32\\powrprof.dll",
+    "C:\\Windows\\SYSTEM32\\CRYPTBASE.DLL",
+    "C:\\Windows\\system32\\uxtheme.dll",
+    "C:\\Windows\\system32\\mswsock.dll",
+    "C:\\Windows\\System32\\kernel.appcore.dll",
+    "C:\\Windows\\System32\\NSI.dll",
+    "C:\\Windows\\SYSTEM32\\dhcpcsvc6.DLL",
+    "C:\\Windows\\SYSTEM32\\dhcpcsvc.DLL",
+    "C:\\Windows\\system32\\napinsp.dll",
+    "C:\\Windows\\system32\\pnrpnsp.dll",
+    "C:\\Windows\\system32\\NLAapi.dll",
+    "C:\\Windows\\SYSTEM32\\DNSAPI.dll",
+    "C:\\Windows\\System32\\winrnr.dll"
+  ]
+}

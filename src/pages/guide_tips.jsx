@@ -1,1 +1,0 @@
-// use onIonInput={(e) => password_check(e.target.value)} instead of onIonChange

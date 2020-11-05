@@ -1,31 +1,38 @@
 	/*
+	LW : Signup page with username validation (min length - 5) ,avail,pwd length (8) and hello {username} after that.
 	header: {
 		 'Authorization': 'Token '+token,
 	}*/
 import React ,{useState} from 'react';
 import { useHistory } from "react-router-dom";
 import {
+	IonApp, 
+	IonHeader,
+	IonTitle,
+	IonToolbar,
+	IonContent,
 	IonInput,
 	IonList,
 	IonItem,
 	IonLabel,
-	IonContent,
 	IonButton
 } from '@ionic/react';
 
-import { Plugins} from '@capacitor/core';
-const { Storage } = Plugins;
+import 'capacitor-secure-storage-plugin';
+import { Plugins } from '@capacitor/core';
+const { SecureStoragePlugin } = Plugins;
 
-const SignupPage = () => {
+const SignupPage=() => {
 	const history = useHistory();
 	const [usernameError,setUsernameError]=useState('');
 	const [passwordError,setPasswordError]=useState('');
 	const [isError,setIsError]=useState(true);
 	const [signupMessage,setSignupMessage]=useState("");
-
-	async function signup(event) {
+	const [messageColor,setMessageColor]=useState("red");
+	const signup = async (event) => {
 		event.preventDefault();
-		if (isError==false)
+		let token;
+		if (isError===false)
 		{		
 				var formdata = new FormData(event.target);
 				var requestOptions = {
@@ -35,22 +42,35 @@ const SignupPage = () => {
 				  redirect: 'follow'
 				};
 				//DND: Do not change the "then"s here.It waits until the req is resloved and returns the data instead of returning a Promise.
-				// ToDo:"then" is not needed while using await inside an sync.See  this:https://stackoverflow.com/a/64421533/14475872
-				const response=await fetch("http://192.168.225.56:8000/signup/", requestOptions).then( response => response.json().then(receivedData => ({status:response.status,data:receivedData})));
+				const response=await fetch("http://127.0.0.1:8000/signup/", requestOptions).then( response => response.json().then(receivedData => ({status:response.status,data:receivedData})));
 			// { status: 201, data: {token: "d5ba4b00d29f3d9b1261b5e1934061b1861e5df4" ,username: "jagav"}} } or {status:400,data:{username:['This field must be unique']}}
-			// DND "== to ===" do not do that
 				if (response.status=="201")
 				{
-					console.log("Account created. ",response);
-					await Storage.set({
-					   key: 'token',
-					   value: response.data.token
-					 });
-					await Storage.set({
-					   key: 'username',
-					   value: response.data.username
-					 });
-					console.log("Username and token stored. Going to MainPage")
+					console.log("signup success ",response);
+					setSignupMessage("Account created successfully!");
+					// Do not use anything other than "key,value" for variable names in secure storage.It will not work.It will be stored as undefined.Dont use const if you wanna change later.Here let is used since I have to reuse it later.
+					let key = 'username';
+					let value = response.data.username;
+					await SecureStoragePlugin.set({ key, value })
+					  .then(success => console.log(success))
+					await SecureStoragePlugin.get({ key })
+					  .then(value => {
+						console.log(value);
+					  })
+					  .catch(error => {
+						console.log('Item with specified key does not exist.');
+					  });
+					  // It should always be key and value.Always.
+					key='token';
+					value=response.data.token;
+					await SecureStoragePlugin.set({ key, value }).then(success => console.log(success));
+					await SecureStoragePlugin.get({ key })
+					  .then(value => {
+						console.log(value.val);
+					  })
+					  .catch(error => {
+						console.log('Error at SignupPage.Item with specified key does not exist.');
+					  });
 					history.push("/main");
 				}
 				else
@@ -68,15 +88,14 @@ const SignupPage = () => {
 		}
 		else
 		{
-			console.log("User clicked signup without resolving validation errors");
+			console.log("Errors in data");
 		}
 	}
-	async function username_check(username_to_test) {
+	const username_check = async (username_to_test) => {
 		if (/^[a-z0-9]{5,15}$/.test(username_to_test))
 		{
 			setUsernameError("Checking availablity");
-			// Bomb:true to false
-			setIsError(false);
+			setIsError(true);
 
 			var requestOptions = {
 			  mode:'cors',
@@ -87,11 +106,9 @@ const SignupPage = () => {
 				},
 			  body:JSON.stringify({username:username_to_test})
 			};
-			const response=await fetch("http://192.168.225.56:8000/username_check/", requestOptions).then( response => response.json().then(receivedData => ({status:response.status,data:receivedData})));
-			console.log(response);
+			const response=await fetch("http://127.0.0.1:8000/username_check/", requestOptions).then( response => response.json().then(receivedData => ({status:response.status,data:receivedData})));
 			if (response.status=="200")
 			{
-				console.log("XX");
 				if (response.data=="0")
 				{
 					setUsernameError("Username not available");
@@ -108,7 +125,7 @@ const SignupPage = () => {
 			setIsError(true);
 		}
 	}
-	async function password_check(password) {
+	const password_check = async (password) => {
 		if (password.length>=8 && password.length<=12)
 		{
 			setPasswordError("👍")
@@ -125,16 +142,23 @@ const SignupPage = () => {
 			setIsError(true);
 		}
 	}
-
 	return(
 		<>
 		<b>Signup</b>
 			<form onSubmit={(event) => {signup(event);}}>
-						<input required name="username" type="text" onChange={(e) => username_check(e.target.value)}/>
+				<IonList>
+					<IonItem>
+						<IonLabel>Username</IonLabel>
+						<IonInput required name="username" type="text" onIonChange={(e) => username_check(e.target.value)}/>
+					</IonItem>
 					<p style={{fontSize:15,color:"red"}}>{usernameError}</p>
-						<input required name="password" type="password" onChange={(e) => password_check(e.target.value)}/>
+					<IonItem>
+						<IonLabel>Password</IonLabel>
+						<IonInput required name="password" type="password" onIonChange={(e) => password_check(e.target.value)}/>
+					</IonItem>
 					<p style={{fontSize:15,color:"red"}}>{passwordError}</p>
-				<button class="myButton" type="submit">Signup!</button>
+				</IonList>
+				<IonButton type="submit">Signup!</IonButton>
 			</form>
 			<p style={{fontSize:20}}>{signupMessage}</p>
 		</>

@@ -1,15 +1,23 @@
-// 80.2785,13.0878
 import React ,{useState,useEffect} from 'react';
 import { useHistory,Link } from "react-router-dom";
-import {IonContent} from '@ionic/react';
+import {
+	IonButton,IonContent
+} from '@ionic/react';
+
 import { Plugins} from '@capacitor/core';
 const { Storage } = Plugins;
-
 const MainPage=  () => {
 	const [username,setUsername]=useState("");
-	const [infoMsg,setInfoMsg]=useState("");
 	const [token,setToken]=useState("token is not loaded yet");
 	const history = useHistory();
+	async function fetchUsernameFromLocalStorage ()	{
+		let temp = await Storage.get({ key: 'username' });
+		setUsername(temp.value);
+		let x=await Storage.get({ key: 'token' });
+		setToken(x.value);
+		// printing username here doesn't work
+		console.log("MainPage: username gotten from storage",temp.value);
+		}
 
 	async function logout() {
 		var requestOptions = {
@@ -29,23 +37,15 @@ const MainPage=  () => {
 			console.log("logout success");
 			await Storage.remove({key:'token'});
 			console.log("Token deleted ");
-			await Storage.remove({key:'username'});
-			console.log("Username deleted ");
-			history.push("/loginsignup");
+			history.push("/signup");
 		}
 		else
 		{
-			setInfoMsg("Couldn't logout..");
+			console.log("cant logout");
 		}
 
 
 	}
-	async function fetchUsernameFromLocalStorage ()	{
-		let x=await Storage.get({ key: 'token' });
-		setToken(x.value);
-		let temp = await Storage.get({ key: 'username' });
-		setUsername(temp.value);
-		}
 
 	useEffect(() => {
 			fetchUsernameFromLocalStorage();
@@ -53,36 +53,27 @@ const MainPage=  () => {
 		},[]);
 
 	return (
-		<div>
+		<div class="page">
 			<p>Hello {username}! </p>
-			<Link to="/public">
-				<button class="myButton" > Public </button>
+			<Link to="/feed">
+			<button class="myButton" routerLink="/feed" routerDirection="forward" onClick> Feed </button>
 			</Link>
+			<br></br>
+			<br></br>
+			<button class="myButton" routerLink="/makepublicpost" routerDirection="forward"> Make PublicPost</button>
+			<br></br>
+			<button class="myButton" routerLink="/mypublicposts" routerDirection="forward"> My Public Posts</button>
 			<br/>
+			<button class="myButton" routerLink="/customfeedlocationupdate" routerDirection="forward">Custom  location Feed</button>
+			<br/>
+			<button class="myButton" routerLink="/findpeoplenearby" routerDirection="forward">FindPeopleNearby</button>
+			<br/>
+			<button class="myButton" routerLink="/followrequestssent" routerDirection="forward">Follow requests sent by me</button>
 			<br/>
 
-			<Link to="/findpeoplenearby">
-				<button class="myButton"> Find people </button>
-			</Link>
-
-			<br/><br/>
-
-			<Link to="/followers">
-				<button class="myButton"> Followers </button>
-			</Link>
-
-
-			<Link to="/makeprivatepost">
-				<button class="myButton"> MakePrivatePost </button>
-			</Link>
-
-			<Link to="/privatefeed">
-				<button class="myButton"> Private Feed </button>
-			</Link>
-
-			<br/><br/>
+			<button class="myButton" routerLink="/followrequestsreceived" routerDirection="forward">Follow requests received by me</button>
+			<br/>
 			<button class="myButton" onClick={() => logout()}>Logout</button>
-			{infoMsg}
 		</div>
 		);
 	};
