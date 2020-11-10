@@ -23,7 +23,6 @@ const SetCustomLocation=  () => {
 		let x=await Storage.get({ key: 'token' });
 		setToken(x.value);
 	}
-	// LW:Update location to server.Get feed and display.Just copy paste from feed.jsx
 	async function updateLocation(event) {
 		event.preventDefault();
 		var requestOptions = {

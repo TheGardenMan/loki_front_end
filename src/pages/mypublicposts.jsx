@@ -32,7 +32,7 @@ const MyPublicPosts=  () => {
 		const status=await fetch("http://192.168.225.56:8000/public_posts/", requestOptions).then( response => {return response.json();})
 		let keys=["user_id","public_post_id","views","likes","dislikes","url"];
 		let post_details=[];
-		if (status.length===0)
+		if (status==0)
 		{
 			setInfoMsg("You have not made any posts");
 		}
@@ -77,10 +77,11 @@ const MyPublicPosts=  () => {
 	return (
 		<IonContent>
 			<p>My Public Posts</p>
+			{postDetails}
 			<button class="myButton" onClick={() => getMyPublicPosts()}>See them</button>
 			<br/>
 			<b>{infoMsg}</b>
-				{postDetails}
+				
 
 			<Link to="public">
 				<button class="myButton"> Back </button>

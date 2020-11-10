@@ -34,10 +34,7 @@ const LoginPage = () => {
 				  body: formdata,
 				  redirect: 'follow'
 				};
-				//DND: Do not change the "then"s here.It waits until the req is resloved and returns the data instead of returning a Promise.
-				// ToDo:"then" is not needed while using await inside an sync.See  this:https://stackoverflow.com/a/64421533/14475872
 				const response=await fetch("http://192.168.225.56:8000/login/", requestOptions).then( response => response.json().then(receivedData => ({status:response.status,data:receivedData})));
-			// DND "== to ===" do not do that
 				if (response.status=="200")
 				{
 					console.log("Login success. ",response);
@@ -45,9 +42,21 @@ const LoginPage = () => {
 					   key: 'token',
 					   value: response.data.token
 					 });
+
+					var reqOp = {
+						mode:'cors',
+						method: 'POST',
+						redirect: 'follow',
+						headers: {
+					  			'Authorization':'Token '+response.data.token
+					  		},
+						};
+					const username_response=await fetch("http://192.168.225.56:8000/whoami/", reqOp).then( username_response => username_response.json().then(xdy => ({status:username_response.status,data:xdy})));
+						console.log("Got username from server ",username_response);
+
 					await Storage.set({
-					   key: 'username',
-					   value: response.data.username
+						key: 'username',
+						value: username_response.data.name
 					 });
 					console.log("Username and token stored. Going to MainPage")
 					history.push("/main");

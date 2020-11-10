@@ -45,6 +45,8 @@ import Followers from './pages/followers';
 import MyFollowers from './pages/myfollowers';
 import MyFollowees from './pages/myfollowees';
 import LoginSignupPage from './pages/loginsignup';
+import MyPrivatePosts from './pages/myprivateposts';
+import Private from './pages/private';
 // Dont make App async
 const { Filesystem,Storage } = Plugins;
 const App =  () => {
@@ -90,7 +92,9 @@ return(
 			<Route path="/myfollowers" component={MyFollowers} exact={true} />
 			<Route path="/myfollowees" component={MyFollowees} exact={true} />
 			<Route path="/public" component={Public} exact={true} />
+			<Route path="/private" component={Private} exact={true} />
 			<Route path="/privatefeed" component={PrivateFeedPage} exact={true} />
+			<Route path="/myprivateposts" component={MyPrivatePosts} exact={true} />
 			<Route path="/login" component={LoginPage} exact={true} />
 			<Route path="/loginsignup" component={LoginSignupPage} exact={true} />
 			<Route path="/" render={() => <Redirect to={nextPageURL} />} exact={true} />

@@ -69,7 +69,6 @@ async function handleImageUpload(event){
 		console.log("Submit disabled");
 	}
 	console.log(location," ....00");
-	// LW:Disable submit button on click
 	let publicPostData=await getUploadUrl();
 	if (publicPostData==null)
 	{

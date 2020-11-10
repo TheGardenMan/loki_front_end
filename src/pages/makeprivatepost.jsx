@@ -50,33 +50,17 @@ async function handleImageUpload(event){
 	console.log("--------- private post create start ---------")
 	event.preventDefault();
 	setInfoMsg("Please wait while the image is uploaded");
-	// ToDo:This is gonna fuck up some day.Store location as a global var.
-	let location;
-	try
-	{
-		location = await Geolocation.getCurrentPosition();
-	}
-	catch(e)
-	{
-		setInfoMsg(("Cannot access location. "+e.message));
-		return;
-	}
-
-	
 	if(submitRef.current)
 	{
 		submitRef.current.setAttribute("disabled","disabled");
 		console.log("Submit disabled");
 	}
-	console.log(location," ....00");
-	// LW:Disable submit button on click
 	let privatePostData=await getUploadUrl();
 	if (privatePostData==null)
 	{
 		setInfoMsg("Error occurred.No connection");
 	}
 	console.log("privatePostData",privatePostData)
-	// ToDo:Round the coords before sending.They are too accurate x.yyy is enough
 	var myHeaders = new Headers();
 	var requestOptions = {
 	  method: 'PUT',
@@ -87,7 +71,6 @@ async function handleImageUpload(event){
 	console.log("S3 upload started .Filename is ",privatePostData.filename);
 	try{
 		let res =await fetch(privatePostData.url, requestOptions);
-		// ToDo:Check if S3 fails with wrong url..
 		console.log(" S3 upload done ",res);		
 		console.log(" private_post_success started");
 		var requestOptions = {
@@ -98,7 +81,7 @@ async function handleImageUpload(event){
 		  		'Authorization': 'Token '+token ,
 				'Content-Type': 'application/json'
 			},
-		  body:JSON.stringify({private_post_id:privatePostData.private_post_id,longitude:location.coords.longitude,latitude:location.coords.latitude})
+		  body:JSON.stringify({private_post_id:privatePostData.private_post_id})
 		};
 		const response=await fetch("http://192.168.225.56:8000/private_post_success/", requestOptions)
 		// .then( response => response.json().then(receivedData => ({status:response.status,data:receivedData})));

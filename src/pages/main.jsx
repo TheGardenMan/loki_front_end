@@ -70,14 +70,11 @@ const MainPage=  () => {
 			<Link to="/followers">
 				<button class="myButton"> Followers </button>
 			</Link>
+			
+			<br/><br/>
 
-
-			<Link to="/makeprivatepost">
-				<button class="myButton"> MakePrivatePost </button>
-			</Link>
-
-			<Link to="/privatefeed">
-				<button class="myButton"> Private Feed </button>
+			<Link to="/private">
+				<button class="myButton"> Private </button>
 			</Link>
 
 			<br/><br/>
