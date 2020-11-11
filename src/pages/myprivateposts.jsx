@@ -29,7 +29,7 @@ const MyPrivatePosts=  () => {
 			'Authorization': 'Token '+token ,
 		  }),
 		};
-		const status=await fetch("http://192.168.225.56:8000/private_posts/", requestOptions).then( response => {return response.json();})
+		const status=await fetch("http://lokidev.herokuapp.com/private_posts/", requestOptions).then( response => {return response.json();})
 		let keys=["private_post_id","views","likes","url"];
 		let post_details=[];
 		console.log(status);

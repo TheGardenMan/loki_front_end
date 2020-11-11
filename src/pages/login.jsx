@@ -34,7 +34,7 @@ const LoginPage = () => {
 				  body: formdata,
 				  redirect: 'follow'
 				};
-				const response=await fetch("http://192.168.225.56:8000/login/", requestOptions).then( response => response.json().then(receivedData => ({status:response.status,data:receivedData})));
+				const response=await fetch("http://lokidev.herokuapp.com/login/", requestOptions).then( response => response.json().then(receivedData => ({status:response.status,data:receivedData})));
 				if (response.status=="200")
 				{
 					console.log("Login success. ",response);
@@ -51,7 +51,7 @@ const LoginPage = () => {
 					  			'Authorization':'Token '+response.data.token
 					  		},
 						};
-					const username_response=await fetch("http://192.168.225.56:8000/whoami/", reqOp).then( username_response => username_response.json().then(xdy => ({status:username_response.status,data:xdy})));
+					const username_response=await fetch("http://lokidev.herokuapp.com/whoami/", reqOp).then( username_response => username_response.json().then(xdy => ({status:username_response.status,data:xdy})));
 						console.log("Got username from server ",username_response);
 
 					await Storage.set({

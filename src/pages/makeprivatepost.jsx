@@ -39,7 +39,7 @@ async function getUploadUrl() {
 	};
 	console.log(token," .......")
 
-	let privatePostData=await fetch("http://192.168.225.56:8000/private_post_request/", requestOptions)
+	let privatePostData=await fetch("http://lokidev.herokuapp.com/private_post_request/", requestOptions)
 	  .then(response => response.text())
 	  .then(result => {return result;})
 	  .catch(error => { console.log("error"); return null;});
@@ -83,7 +83,7 @@ async function handleImageUpload(event){
 			},
 		  body:JSON.stringify({private_post_id:privatePostData.private_post_id})
 		};
-		const response=await fetch("http://192.168.225.56:8000/private_post_success/", requestOptions)
+		const response=await fetch("http://lokidev.herokuapp.com/private_post_success/", requestOptions)
 		// .then( response => response.json().then(receivedData => ({status:response.status,data:receivedData})));
 		console.log(" private_post_success done ",response);
 		console.log("--------- private post create end --------- Going to privatepostsuccess");

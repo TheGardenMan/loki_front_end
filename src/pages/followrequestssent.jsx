@@ -27,7 +27,7 @@ const FollowRequestsSent=  () => {
 				},
 		};
 		requestOptions.body=JSON.stringify({user_id:event.target.value});
-		const res=await fetch("http://192.168.225.56:8000/delete_sent_follow_request/", requestOptions)
+		const res=await fetch("http://lokidev.herokuapp.com/delete_sent_follow_request/", requestOptions)
 		console.log(res);
 		if (res.status=="200")
 		{
@@ -47,7 +47,7 @@ const FollowRequestsSent=  () => {
 				'Content-Type': 'application/json'
 				},
 		};
-		const user_ids=await fetch("http://192.168.225.56:8000/follow_requests_sent/", requestOptions).then( yy => {return yy.json();});
+		const user_ids=await fetch("http://lokidev.herokuapp.com/follow_requests_sent/", requestOptions).then( yy => {return yy.json();});
 		if (user_ids==0)
 		{
 			setUsers("You have not sent any requests");
@@ -59,7 +59,7 @@ const FollowRequestsSent=  () => {
 			for(let user_id_ in user_ids)
 			{
 				requestOptions.body=JSON.stringify({user_id:user_ids[user_id_]});
-				const username=await fetch("http://192.168.225.56:8000/get_username/", requestOptions).then( response => response.json());
+				const username=await fetch("http://lokidev.herokuapp.com/get_username/", requestOptions).then( response => response.json());
 				temp_users.push(<p>{username}</p>);
 				temp_users.push(<button class="myButton" value={user_ids[user_id_]} onClick={deleteFollowRequest}>Delete request</button>);
 			}

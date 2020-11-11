@@ -39,7 +39,7 @@ async function getUploadUrl() {
 	};
 	console.log(token," .......")
 
-	let publicPostData=await fetch("http://192.168.225.56:8000/public_post_request/", requestOptions)
+	let publicPostData=await fetch("http://lokidev.herokuapp.com/public_post_request/", requestOptions)
 	  .then(response => response.text())
 	  .then(result => {return result;})
 	  .catch(error => { console.log("error"); return null;});
@@ -99,7 +99,7 @@ async function handleImageUpload(event){
 			},
 		  body:JSON.stringify({public_post_id:publicPostData.public_post_id,longitude:location.coords.longitude,latitude:location.coords.latitude})
 		};
-		const response=await fetch("http://192.168.225.56:8000/public_post_success/", requestOptions)
+		const response=await fetch("http://lokidev.herokuapp.com/public_post_success/", requestOptions)
 		// .then( response => response.json().then(receivedData => ({status:response.status,data:receivedData})));
 		console.log(" public_post_success done ",response);
 		console.log("--------- pub post create end --------- Going to publicpostsuccess");

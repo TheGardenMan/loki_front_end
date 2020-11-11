@@ -34,7 +34,7 @@ const FindPeopleNearby=  () => {
 		// Otherwise event will become null after first attribute access
 		event.persist();
 		requestOptions.body=JSON.stringify({user_id:event.target.value})
-		const response=await fetch("http://192.168.225.56:8000/follow/", requestOptions)
+		const response=await fetch("http://lokidev.herokuapp.com/follow/", requestOptions)
 		if (response.status==200)
 		{
 			event.target.innerHTML="Request sent";
@@ -58,10 +58,10 @@ const FindPeopleNearby=  () => {
 		// ToDo:Round the coords before sending.They are too accurate x.yyy is enough
 		console.log(location.coords.longitude," ...",location.coords.latitude)
 		requestOptions.body=JSON.stringify({longitude:location.coords.longitude,latitude:location.coords.latitude});
-		const res=await fetch("http://192.168.225.56:8000/update_user_location/", requestOptions);
+		const res=await fetch("http://lokidev.herokuapp.com/update_user_location/", requestOptions);
 
 		setUsers("Loading nearby users.. Please wait.");
-		const user_ids=await fetch("http://192.168.225.56:8000/find_nearby_people/", requestOptions).then( response => response.json());
+		const user_ids=await fetch("http://lokidev.herokuapp.com/find_nearby_people/", requestOptions).then( response => response.json());
 		console.log(user_ids);
 		let users=[];
 		if (user_ids=="0")
@@ -74,8 +74,8 @@ const FindPeopleNearby=  () => {
 			for (let user_id_ in user_ids)
 			{
 				requestOptions.body=JSON.stringify({user_id:user_ids[user_id_]});
-				const username=await fetch("http://192.168.225.56:8000/get_username/", requestOptions).then( response => response.json());
-				let follow_status=await fetch("http://192.168.225.56:8000/follow_status/", requestOptions).then( response => response.json());
+				const username=await fetch("http://lokidev.herokuapp.com/get_username/", requestOptions).then( response => response.json());
+				let follow_status=await fetch("http://lokidev.herokuapp.com/follow_status/", requestOptions).then( response => response.json());
 				users.push(<p>{username}</p>);
 				if (follow_status==1)
 				{

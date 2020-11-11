@@ -46,7 +46,7 @@ const PrivateFeedPage=  () => {
 		};
 
 
-		const privateFeedPosts=await fetch("http://192.168.225.56:8000/private_feed/", requestOptions).then( reply => {return reply.json();})
+		const privateFeedPosts=await fetch("http://lokidev.herokuapp.com/private_feed/", requestOptions).then( reply => {return reply.json();})
 		// console.log(privateFeedPosts);
 		let keys=["user_id","private_post_id","views","likes","url"];
 		let post_details=[];

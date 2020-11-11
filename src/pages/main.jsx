@@ -22,7 +22,7 @@ const MainPage=  () => {
 			},
 		};
 		// Do not JSON here.It's already JSON
-		const response=await fetch("http://192.168.225.56:8000/logout/", requestOptions);
+		const response=await fetch("http://lokidev.herokuapp.com/logout/", requestOptions);
 		console.log(response);
 		if (response.status===200)
 		{
@@ -103,7 +103,7 @@ export default MainPage;
 		"Content-Type": "application/json"
 	  }),
 	};
-	const status=await fetch("http://192.168.225.56:8000/whoami/", requestOptions).then( response => response.json().then(receivedData => ({status:response.status,data:receivedData})));
+	const status=await fetch("http://lokidev.herokuapp.com/whoami/", requestOptions).then( response => response.json().then(receivedData => ({status:response.status,data:receivedData})));
 	console.log(status," data");
 }
 

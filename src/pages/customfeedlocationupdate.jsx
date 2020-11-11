@@ -35,7 +35,7 @@ const SetCustomLocation=  () => {
 			},
 			body:JSON.stringify({longitude:t_longitude,latitude:t_latitude}),
 		};
-		const response=await fetch("http://192.168.225.56:8000/update_user_location/", requestOptions);
+		const response=await fetch("http://lokidev.herokuapp.com/update_user_location/", requestOptions);
 		history.push("/customfeed");
 		
 	}

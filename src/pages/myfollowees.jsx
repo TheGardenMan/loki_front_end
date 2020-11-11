@@ -26,7 +26,7 @@ const MyFollowees=  () => {
 				'Content-Type': 'application/json'
 				},
 		};
-		const user_ids=await fetch("http://192.168.225.56:8000/followees/", requestOptions).then( yy => {return yy.json();});
+		const user_ids=await fetch("http://lokidev.herokuapp.com/followees/", requestOptions).then( yy => {return yy.json();});
 		if (user_ids==0)
 		{
 			setUsers("You don't follow anyone.");
@@ -38,7 +38,7 @@ const MyFollowees=  () => {
 			for(let user_id_ in user_ids)
 			{
 				requestOptions.body=JSON.stringify({user_id:user_ids[user_id_]});
-				const username=await fetch("http://192.168.225.56:8000/get_username/", requestOptions).then( response => response.json());
+				const username=await fetch("http://lokidev.herokuapp.com/get_username/", requestOptions).then( response => response.json());
 				temp_users.push(<p><i>{username}</i></p>);
 				// ToDo:Unfollow Button
 				// temp_users.push(<button value={user_ids[user_id_]} onClick={deleteFollowRequest}>Delete follow request</button>);

@@ -36,7 +36,7 @@ const SignupPage = () => {
 				};
 				//DND: Do not change the "then"s here.It waits until the req is resloved and returns the data instead of returning a Promise.
 				// ToDo:"then" is not needed while using await inside an sync.See  this:https://stackoverflow.com/a/64421533/14475872
-				const response=await fetch("http://192.168.225.56:8000/signup/", requestOptions).then( response => response.json().then(receivedData => ({status:response.status,data:receivedData})));
+				const response=await fetch("http://lokidev.herokuapp.com/signup/", requestOptions).then( response => response.json().then(receivedData => ({status:response.status,data:receivedData})));
 			// { status: 201, data: {token: "d5ba4b00d29f3d9b1261b5e1934061b1861e5df4" ,username: "jagav"}} } or {status:400,data:{username:['This field must be unique']}}
 			// DND "== to ===" do not do that
 				if (response.status=="201")
@@ -87,7 +87,7 @@ const SignupPage = () => {
 				},
 			  body:JSON.stringify({username:username_to_test})
 			};
-			const response=await fetch("http://192.168.225.56:8000/username_check/", requestOptions).then( response => response.json().then(receivedData => ({status:response.status,data:receivedData})));
+			const response=await fetch("http://lokidev.herokuapp.com/username_check/", requestOptions).then( response => response.json().then(receivedData => ({status:response.status,data:receivedData})));
 			console.log(response);
 			if (response.status=="200")
 			{

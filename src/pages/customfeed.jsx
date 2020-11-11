@@ -57,7 +57,7 @@ const CustomFeed=  () => {
 		  console.log("This is NOT A firstRequest");
 		}
 
-		const publicFeedPosts=await fetch("http://192.168.225.56:8000/public_feed/", requestOptions).then( reply => {return reply.json();})
+		const publicFeedPosts=await fetch("http://lokidev.herokuapp.com/public_feed/", requestOptions).then( reply => {return reply.json();})
 		// console.log(publicFeedPosts);
 		let keys=["user_id","public_post_id","views","likes","dislikes","url"];
 		let post_details=[];

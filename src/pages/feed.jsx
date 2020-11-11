@@ -57,7 +57,7 @@ const FeedPage=  () => {
 			},
 			body:JSON.stringify({longitude:location.coords.longitude,latitude:location.coords.latitude}),
 		};
-		const response=await fetch("http://192.168.225.56:8000/update_user_location/", requestOptions);
+		const response=await fetch("http://lokidev.herokuapp.com/update_user_location/", requestOptions);
 		console.log(firstRequest);
 		if (firstRequest===true)
 		{
@@ -72,7 +72,7 @@ const FeedPage=  () => {
 		  console.log("This is NOT A firstRequest");
 		}
 
-		const publicFeedPosts=await fetch("http://192.168.225.56:8000/public_feed/", requestOptions).then( reply => {return reply.json();})
+		const publicFeedPosts=await fetch("http://lokidev.herokuapp.com/public_feed/", requestOptions).then( reply => {return reply.json();})
 		// console.log(publicFeedPosts);
 		let keys=["user_id","public_post_id","views","likes","dislikes","url"];
 		let post_details=[];
